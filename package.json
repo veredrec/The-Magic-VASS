@@ -1,0 +1,32 @@
+{
+  "name": "the-magic-vass",
+  "version": "1.0.0",
+  "description": "The magic project from Vered, Amy, Sajeda & Stefano (VASS)",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "nyc istanbul cover tape test.js | tap-spec",
+    "devStart": "nodemon src/server.js",
+    "start": "node src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/veredrec/The-Magic-VASS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/veredrec/The-Magic-VASS/issues"
+  },
+  "homepage": "https://github.com/veredrec/The-Magic-VASS#readme",
+  "devDependencies": {
+    "istanbul": "^0.4.5",
+    "nodemon": "^1.11.0",
+    "nyc": "^11.1.0",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.8.0"
+  },
+  "dependencies": {}
+}
