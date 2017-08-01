@@ -1,8 +1,21 @@
-const api = require('./api.js');
+const apiCall = require('./api.js');
+const apiURL = 'https://api.cryptowat.ch/markets/summaries'
 
 
-const handler = (request, response) => {
+const handleHome = (response) => {
 
 }
 
-module.exports = handler;
+const handlePublic = (request, response) => {
+
+}
+
+const handleInput = (request, response) => {
+
+}
+
+module.exports = {
+	handleHome, 
+	handlePublic, 
+	handleInput
+}
