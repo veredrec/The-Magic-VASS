@@ -1,34 +1,42 @@
-var XHR = new XMLHttpRequest();
 var form = document.querySelector('.form')
 var cryptoInput = document.querySelector('.crypto')
 var currencyInput = document.querySelector('.currency')
 var result = document.querySelector('.result')
 
+var makeRequest = function(url) {
+	console.log(123);
+	var XHR = new XMLHttpRequest();
+	XHR.onreadystatechange = function () {
+		console.log(XHR.status);
+		if (XHR.readyState === 4 && XHR.status === 200 ) {
+			console.log("Hey!");
+			console.log(XHR.responseText);
+			var xhrObj = JSON.parse(XHR.responseText)  //the response to the request as text
+			showPrice(xhrObj)
 
-XHR.onreadystatechange = function () {
-	if (XHR.readyState === 4 && XHR.status === 200) {
-		var xhrObj = JSON.parse(XHR.responseText)  //the response to the request as text
-		showPrice(xhrObj)
-
-	} else {
-		result.innerText = "Fuck we fucked up"
+		} else {
+			result.innerText = "Fuck we fucked up"
+		}
 	}
+	XHR.open('GET', url, true);
+	XHR.send();
 }
 
+
+
 form.addEventListener('submit', function(event) {
+
 	event.preventDefault(); // prevents page from reloading
 	var crypto = cryptoInput.value;
 	var currency = currencyInput.value;
 
 	var url = '?cryptoCurrency=' + crypto + '&currency=' + currency //base url for the parameter in XHR.open
-
+	makeRequest(url)
 	form.reset();
-
-	XHR.open('GET', url, true);
-	XHR.send();
 })
 
 function showPrice(xhrObj) {
+	console.log(xhrObj);
 	var currencyList = document.createElement('ul');
 	currencyList.setAttribute('class', 'pricesUl')
 
@@ -40,8 +48,4 @@ function showPrice(xhrObj) {
 	})
 
 	// currencyNode.innerText = xhrObj.pricelast; // this could be wrong
-
-
-
-
 }
