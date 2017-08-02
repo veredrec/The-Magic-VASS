@@ -1,9 +1,7 @@
-// const apiCall = require('./api.js'); // request file api.js for app
 const fs = require('fs'); // require fs for app
 const path = require('path'); // require path for app
 const url = 'https://api.cryptowat.ch/markets/summaries'; // url for api call
 const querystring = require ('querystring')
-// const apiCall = require('./api.js');
 const requests = require('request');
 
 
@@ -21,9 +19,7 @@ const handleHome = (response) => {
 }
 
 const handlePublic = (response, urlPublic) => {
-    // console.log(urlPublic);
     const extention = urlPublic.split('.')[1]; // taking the part of the file name which is the extention, i.e. "css".
-
     const extentionType = { //object of the differnet types of files
         html: 'text/html',
         css: 'text/css',
@@ -52,13 +48,9 @@ const handleInput = (request, response) => {
       objData.pricehigh = results[search].price.high;
       objData.pricelow = results[search].price.low;
       objData.pricechange = results[search].price.change.percentage;
-      //callback(null, objData)
-      //console.log(objData);
       response.writeHead(200, `Content-Type: application/json`);
       response.end(JSON.stringify(objData));
    })
-
-  // response.end("<h1>string</h1>");
 }
 
 module.exports = {
