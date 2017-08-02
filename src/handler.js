@@ -41,7 +41,7 @@ const handlePublic = (response, url) => {
 //
 // }
 
-module.exports = {
+module.exports = { // exporting all the handler functions
 	handleHome,
 	handlePublic,
 	// handleInput
