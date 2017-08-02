@@ -11,7 +11,7 @@ XHR.onreadystatechange = function () {
 		showPrice(xhrObj)
 	
 	} else {
-		result.innerText = "Fucked"
+		result.innerText = "Fuck we fucked up"
 	}
 }
 
