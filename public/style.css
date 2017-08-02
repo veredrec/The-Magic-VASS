@@ -1,0 +1,20 @@
+h1 {
+  color: #633F52;
+  font-size: 2em;
+  text-align: center;
+}
+select {
+  background-color: #D1EAEE;
+  font-size: 1.5em;
+  width: 10em;
+  height: 3em;
+  margin: 0 auto;
+}
+.submit {
+  cursor: pointer;
+  appearance: none;
+  border-radius: 4px;
+  font-size: 1.25rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid navy;
+}
