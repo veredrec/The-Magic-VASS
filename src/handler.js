@@ -4,7 +4,6 @@ const url = 'https://api.cryptowat.ch/markets/summaries'; // url for api call
 const querystring = require ('querystring')
 const requests = require('request');
 
-
 const handleHome = (response) => {
     const filePath = path.join(__dirname, `..`, `public`, `index.html` );
     fs.readFile(filePath, (error, file) => {
@@ -42,12 +41,14 @@ const handlePublic = (response, urlPublic) => {
 const handleInput = (request, response) => {
   var objData = {};
   const search = 'kraken:' + Object.values(querystring.parse(request.url))[0] + Object.values(querystring.parse(request.url))[1];
+  const title = Object.values(querystring.parse(request.url))[0] + " > " + Object.values(querystring.parse(request.url))[1];
   requests(url, (error, res, body) => {
       const results = JSON.parse(body).result;
-      objData.pricelast = results[search].price.last;
-      objData.pricehigh = results[search].price.high;
-      objData.pricelow = results[search].price.low;
-      objData.pricechange = results[search].price.change.percentage;
+      objData.title = title;
+      objData['Current Price'] = results[search].price.last;
+      objData['Today\'s Highest Price'] = results[search].price.high;
+      objData['Today\'s Lowest Price'] = results[search].price.low;
+      objData['Price Change'] = results[search].price.change.percentage * 100 + '%';
       response.writeHead(200, `Content-Type: application/json`);
       response.end(JSON.stringify(objData));
    })
