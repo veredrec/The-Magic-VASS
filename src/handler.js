@@ -35,8 +35,7 @@ const handlePublic = (response, url) => {
 			response.end(file); // serve the file
 		}
 	})
-}
-
+  
 // const handleInput = (request, response) => {
 //
 // }
