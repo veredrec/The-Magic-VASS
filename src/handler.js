@@ -21,7 +21,7 @@ const handleHome = (response) => {
 }
 
 const handlePublic = (response, urlPublic) => {
-    console.log(urlPublic);
+    // console.log(urlPublic);
     const extention = urlPublic.split('.')[1]; // taking the part of the file name which is the extention, i.e. "css".
 
     const extentionType = { //object of the differnet types of files
@@ -53,8 +53,8 @@ const handleInput = (request, response) => {
       objData.pricelow = results[search].price.low;
       objData.pricechange = results[search].price.change.percentage;
       //callback(null, objData)
-      console.log(objData);
-      response.writeHead(302, {Location : `/`});
+      //console.log(objData);
+      response.writeHead(200, `Content-Type: application/json`);
       response.end(JSON.stringify(objData));
    })
 
