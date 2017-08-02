@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Bitcoin API</title>
+      <link rel="stylesheet" type="text/css" href="">
   </head>
   <body>
 
@@ -10,21 +11,25 @@
 
   <form id="form" class="form">
 
-  <select id="crypto" class="crypto" name="cryptoCurrency">
-    <option value="bitcoin">Bitcoin</option>
-    <option value="ether">Ether</option>
-  </select>
+    <select id="crypto" class="crypto" name="cryptoCurrency">
+      <option value="bitcoin">Bitcoin</option>
+      <option value="ether">Ether</option>
+    </select>
 
-  <select id="crypto" class="currency" name="currency">
-    <option value="usd">USD</option>
-    <option value="euro">EURO</option>
-    <option value="gbp">GBP</option>
-  </select>
+    <select id="currency" class="currency" name="currency">
+      <option value="usd">USD</option>
+      <option value="euro">EURO</option>
+      <option value="gbp">GBP</option>
+    </select>
 
-<input id="submit" class="submit" type="submit" value="Submit"></input>
+    <input id="submit" class="submit" type="submit" value="Submit"></input>
 
-</form>
+  </form>
 
+  <div id="result" class="result">
+    
+  </div>
 
+    <script type="text/javascript" href="./index.js"></script>
   </body>
 </html>
