@@ -6,8 +6,10 @@ const router = (request, response) => {
 		handler.handleHome(response)
 	} else if (url.indexOf('/public/') === 0) {
 		handler.handlePublic(request, response)
-	} else if (url.indexOf('/?submit=') === 0) {
-		handler.handleInput(request, response)
+	} else if (url.indexOf('/?cryptoCurrency=') === 0) {
+		handler.handleInput(request, response, (err, res)=>{
+			console.log(res)
+		})
 	} else {
 		response.writeHead(404, {'Content-Type' : 'text/html'});
 		response.end('<h1>File not found</h1>')

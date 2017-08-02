@@ -1,19 +1,38 @@
-// const http = require('http');
-// const request = require('request')
-
-// const apiCall = (url, callback) => {
-// 	request.get(apiURL, (res) => {
-// 		if (res.statusCode !== 200) {
-// 			res.writeHead(404, {'Content-Type' : 'text/html'})
-// 			res.end("Request Failed." + res.statusCode);
-// 		}
-// 		else {
-// 			callback(null, res)
-// 		}
-// 	})
-
-// }
+const http = require('http');
+const request = require('request');
+const fs = require('fs');
 
 
+const apiCall = (url) => {
+//  request(url, (error, response, body) => {
+//     // console.log(response.statusCode);
+//      console.log(body);
+// // return response;
+//   })
 
-// module.exports = apiCall;
+}
+
+// let apiData = '';
+// request
+//   .get(url)
+//   .on('error',(err) =>{
+//   console.log(new TypeError('this is an Error'));
+//   })
+//   .on('data', (chunks) = {
+//       apiData += chunks
+//     })
+//   // .pipe(fs.createWriteStream(data));
+//   console.log(apiData)
+
+
+	// request.get(apiURL, (response) => {
+	// 	if (res.statusCode !== 200) {
+	// 		response.writeHead(404, {'Content-Type' : 'text/html'})
+	// 		response.end("Request Failed." + res.statusCode);
+	// 	}
+	// 	else {
+	// 		callback(null, response)
+	// 	}
+	// })
+
+module.exports = apiCall;

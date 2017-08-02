@@ -9,7 +9,7 @@ XHR.onreadystatechange = function () {
 	if (XHR.readyState === 4 && XHR.status === 200) {
 		var xhrObj = JSON.parse(XHR.responseText)  //the response to the request as text
 		showPrice(xhrObj)
-	
+
 	} else {
 		result.innerText = "Fuck we fucked up"
 	}
@@ -26,7 +26,7 @@ form.addEventListener('submit', function(event) {
 
 	XHR.open('GET', url, true);
 	XHR.send();
-}) 
+})
 
 function showPrice(xhrObj) {
 	var currencyList = document.createElement('ul');
@@ -39,13 +39,9 @@ function showPrice(xhrObj) {
 		currencyList.appendChild(currencyNode)
 	})
 
-
-
 	// currencyNode.innerText = xhrObj.pricelast; // this could be wrong
-	
+
 
 
 
 }
-	
-
