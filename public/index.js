@@ -19,17 +19,22 @@ var makeRequest = function(url) {
 }
 
 
-
 form.addEventListener('submit', function(event) {
 	event.preventDefault(); // prevents page from reloading
 	var crypto = cryptoInput.value;
 	var currency = currencyInput.value;
 	var url = '?cryptoCurrency=' + crypto + '&currency=' + currency //base url for the parameter in XHR.open
-	// var myVar = setInterval, 1000);
-	makeRequest(url)
+
+	var timeVariable = setInterval(priceTimer, 5000);
+
+	function priceTimer() {
+		makeRequest(url)
+	}
 
 	form.reset();
 })
+
+
 
 function showPrice(xhrObj) {
 	var currencyList = document.createElement('ul');
@@ -41,5 +46,5 @@ function showPrice(xhrObj) {
 		currencyNode.innerText = key;
 		currencyList.appendChild(currencyNode);
 	})
-	result.appendChild(currencyList);
+	result.replaceChild(currencyList, result.firstChild);
 }
