@@ -7,14 +7,14 @@ var makeRequest = function(url) {
 	console.log(123);
 	var XHR = new XMLHttpRequest();
 	XHR.onreadystatechange = function () {
-		console.log(XHR.status);
 		if (XHR.readyState === 4 && XHR.status === 200 ) {
 			console.log("Hey!");
 			console.log(XHR.responseText);
 			var xhrObj = JSON.parse(XHR.responseText)  //the response to the request as text
 			showPrice(xhrObj)
 
-		} else {
+		}
+		else if (XHR.readyState === 4 && XHR.status !== 200) {
 			result.innerText = "Fuck we fucked up"
 		}
 	}
