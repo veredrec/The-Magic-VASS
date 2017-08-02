@@ -1,7 +1,11 @@
 // const apiCall = require('./api.js'); // request file api.js for app
 const fs = require('fs'); // require fs for app
 const path = require('path'); // require path for app
-const apiURL = 'https://api.cryptowat.ch/markets/summaries'; // url for api call
+const url = 'https://api.cryptowat.ch/markets/summaries'; // url for api call
+const querystring = require ('querystring')
+const apiCall = require('./api.js');
+const requests = require('request');
+
 
 const handleHome = (response) => {
     const filePath = path.join(__dirname, `..`, `public`, `index.html` );
@@ -37,13 +41,34 @@ const handlePublic = (response, url) => {
     })
 }
 
-// const handleInput = (request, response) => {
 
+const handleInput = (request, response, callback) => {
+  var objData = {};
 
-// }
+  const search = 'kraken:' + Object.values(querystring.parse(request.url))[0]+Object.values(querystring.parse(request.url))[1];
+  requests(url, (error, response, body) => {
+     // console.log(response.statusCode);
+      // console.log(body);
+      const results = JSON.parse(body).result;
+      objData.priceLast = results[search].price.last;
+      objData.priceHigh = results[search].price.high;
+      objData.priceLow = results[search].price.low;
+      objData.priceChange = results[search].price.change.percentage;
+      callback(null, objData)
+    //  response.end(objData)
+   })
+   response.end(JSON.stringify(objData));
+
+//  console.log(apiCall(url));
+
+// apiCall(search,response)
+//
+}
+// console.log(objData);
+
 
 module.exports = {
     handleHome,
-    handlePublic
-    // handleInput
+    handlePublic,
+    handleInput
 }
