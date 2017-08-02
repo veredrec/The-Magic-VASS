@@ -43,6 +43,6 @@ const handlePublic = (response, url) => {
 
 module.exports = {
 	handleHome,
-	handlePublic,
+	handlePublic
 	// handleInput
 }
