@@ -1,4 +1,4 @@
-const apiCall = require('./api.js'); // request file api.js for app
+// const apiCall = require('./api.js'); // request file api.js for app
 const fs = require('fs'); // require fs for app
 const path = require('path'); // require path for app
 const apiURL = 'https://api.cryptowat.ch/markets/summaries'; // url for api call
@@ -38,7 +38,8 @@ const handlePublic = (response, url) => {
 }
 
 // const handleInput = (request, response) => {
-//
+
+
 // }
 
 module.exports = {
