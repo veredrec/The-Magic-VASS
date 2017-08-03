@@ -6,7 +6,7 @@ const router = (request, response) => {
     handler.handleHome(response);
   } else if (url.indexOf('/public/') === 0) {
     handler.handlePublic(response, url);
-  } else if (url.indexOf('/?cryptoCurrency') === 0) {
+  } else if (url.indexOf('/coins') === 0) {
     handler.handleInput(request, response);
   } else {
     response.writeHead(404, {'Content-Type': 'text/html'});
