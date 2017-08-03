@@ -7,6 +7,8 @@
 ##### Create a Web App that uses a Bitcoin API to provide the user with bitcoin related information.
 
 ### How to run our app:
+* Open the app on Heroku: https://the-magic-vass.herokuapp.com/ OR:
+
 * clone the repo:
 ```javascript
 $ git clone https://github.com/veredrec/The-Magic-VASS.git
