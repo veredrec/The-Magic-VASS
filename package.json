@@ -30,6 +30,7 @@
     "tape": "^4.8.0"
   },
   "dependencies": {
+    "chart.js": "^2.6.0",
     "request": "^2.81.0",
     "url": "^0.11.0"
   }
