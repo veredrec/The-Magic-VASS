@@ -1,7 +1,7 @@
 const fs = require('fs'); // require fs for app
 const path = require('path'); // require path for app
 const url = 'https://api.cryptowat.ch/markets/summaries'; // url for api call
-const querystring = require ('querystring')
+const querystring = require ('querystring');
 const requests = require('request');
 
 const handleHome = (response) => {
