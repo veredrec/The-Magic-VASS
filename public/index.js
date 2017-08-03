@@ -59,6 +59,7 @@ var makeRequest = function(url) {
       makeChart(xhrObj);
     } else if (XHR.readyState === 4 && XHR.status !== 200) {
       result.innerText = 'Error loading data :)';
+      console.log(XHR.status)
     } else {
       result.innerText = 'Fetching Data.....';
     }
@@ -73,7 +74,7 @@ form.addEventListener('submit', function(event) {
   event.preventDefault(); // prevents page from reloading
   var crypto = cryptoInput.value;
   var currency = currencyInput.value;
-  var url = '?cryptoCurrency=' + crypto + '&currency=' + currency; //base url for the parameter in XHR.open
+  var url = 'coins?cryptoCurrency=' + crypto + '&currency=' + currency; //base url for the parameter in XHR.open
 
   if (timeVariable) {
     clearInterval(timeVariable);
