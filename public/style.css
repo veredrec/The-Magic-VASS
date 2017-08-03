@@ -33,6 +33,7 @@ select {
    text-align: center;
    font-family: arvo,cursive;
  }
+
 .submit {
   cursor: pointer;
   appearance: none;
@@ -42,6 +43,15 @@ select {
   border: 1px solid navy;
   font-family: arvo,cursive;
 
+}
+
+.chartContainer {
+  width: 50%;
+  height: 200px;
+}
+
+#lineChart {
+  background-color: white;
 }
 
 @media screen and (max-width: 765px) {

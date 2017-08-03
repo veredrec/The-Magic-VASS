@@ -12,7 +12,7 @@ var lineChart = new Chart(chart, {
       label: '',
       fill: false,
       data: [],
-      backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+      backgroundColor: ['rgba(25,99,132,1)'],
       borderColor: ['rgba(255,99,132,1)'],
       borderWidth: 1
     }]
@@ -67,13 +67,19 @@ var makeRequest = function(url) {
   XHR.send();
 }
 
+var timeVariable;
+
 form.addEventListener('submit', function(event) {
   event.preventDefault(); // prevents page from reloading
   var crypto = cryptoInput.value;
   var currency = currencyInput.value;
   var url = '?cryptoCurrency=' + crypto + '&currency=' + currency; //base url for the parameter in XHR.open
 
-  var timeVariable = setInterval(priceTimer, 5000);
+  if (timeVariable) {
+    clearInterval(timeVariable);
+  }
+
+  timeVariable = setInterval(priceTimer, 5000);
 
   function priceTimer() {
     makeRequest(url);
