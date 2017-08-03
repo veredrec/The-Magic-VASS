@@ -42,20 +42,15 @@ const handleInput = (request, response) => {
 const url = 'https://api.cryptowat.ch/markets/summaries';// url for api call
 
   const parsedUrl = urlModule.parse(request.url, true);
-  console.log(parsedUrl);
   var objData = {};
   const search = 'kraken:' + parsedUrl.query.cryptoCurrency + parsedUrl.query.currency;
-  console.log(search);
   const title = parsedUrl.query.cryptoCurrency + ' > ' + parsedUrl.query.currency;
   requests(url, (error, res, body) => {
     const results = JSON.parse(body).result;
-    // console.log(results);
     objData.title = title;
     if (JSON.parse(body).error == 'Out of allowance') {
       objData['Error'] = "Sorry, you can't make any more requests this hour. Come back later";
-    } else if (results[search] == undefined) {
-      console.log(' fnaf');
-    }
+    } 
     else {
       objData['Current Price'] = results[search].price.last;
       objData['Today\'s Highest Price'] = results[search].price.high;
