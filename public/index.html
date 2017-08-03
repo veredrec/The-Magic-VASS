@@ -3,8 +3,9 @@
 
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Bitcoin API</title>
-  <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet"> -->
   <link rel="stylesheet" type="text/css" href="./public/style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js"></script>
   <link rel="icon" type="image/png" href="public/assets/images/bitcoin.png">
@@ -13,7 +14,7 @@
 <body>
 
   <h1 class="title"> The Magic VASS </h1>
-  <h1 class="title"> Search for your crypto Currency </h1>
+  <h2 class="title"> Search for Cryptocurrency </h2>
 <!-- <img class="bitcoin" src="public/assets/images/bitcoin2.jpg" alt="bitcoin"> -->
   <form id="form" class="form">
 
@@ -34,11 +35,15 @@
   </form>
 
   <section class='resultContainer'>
-    <h2></h2> <!-- This is for DOM, for when we remove first child -->
-    <div id="result" class="result">
-      <ul class="pricesUl"></ul>
+    <div class="dataContainer">
+      <h2 class="currencyTitle"></h2> <!-- This is for DOM, for when we remove first child -->
+      <div id="result" class="result">
+        <ul class="pricesUl"></ul>
+      </div>
     </div>
-    <canvas id="lineChart" max-width="10" max-height="10"></canvas>
+    <div class="chartContainer">
+      <canvas id="lineChart" max-width="10" max-height="10"></canvas>
+    </div>
   </section>
   <script type="text/javascript" src="./public/index.js"></script>
 </body>

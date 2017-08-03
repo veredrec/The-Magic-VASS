@@ -1,38 +1,43 @@
+@import url(https://fonts.googleapis.com/css?family=Arvo);
+
 body {
   background-image: url("./assets/images/bitcoin2.jpg");
-	/*background-repeat: no-repeat;*/
+  font-family: 'Arvo', sans-serif;
+  /*background-repeat: no-repeat;*/
   background-size: cover;
-  background-size: cover
-  opacity: 0.5;
+  background-size: cover opacity: 0.5;
+  height: 800px;
 }
 
-h1 {
+.title {
   color: #633F52;
   font-size: 2em;
   text-align: center;
   font-family: arvo, cursive;
 }
-form {
-  display:flex;
+
+.form {
+  display: flex;
   justify-content: center;
-  width:80%;
+  width: 80%;
   align-content: space-between;
 }
+
 select {
   background-color: #D1EAEE;
   font-size: 1.5em;
   width: 10em;
   height: 3em;
   margin: 0 auto;
-  font-family: arvo,cursive;
+  font-family: arvo, cursive;
   padding: 0.4em;
-
 }
- option {
-   color: #1e3f20;
-   text-align: center;
-   font-family: arvo,cursive;
- }
+
+option {
+  color: #1e3f20;
+  text-align: center;
+  font-family: arvo, cursive;
+}
 
 .submit {
   cursor: pointer;
@@ -41,12 +46,47 @@ select {
   font-size: 1.25rem;
   padding: 0.75rem 1rem;
   border: 1px solid navy;
-  font-family: arvo,cursive;
+  font-family: arvo, cursive;
+}
+
+.resultContainer {
+  align: center;
+  padding: 20px;
+}
+
+.currencyTitle {
+  text-align: center;
+  font-size: 2em;
+}
+
+/*div #result .pricesUl {
+  height: 6em;
+  position: fixed;
+}*/
+
+.dataContainer {
+  height: 13em;
+  border: 2px solid black;
+  width: 696px;
+  margin: auto;
+  background-color: rgba(219, 99, 0, 0.5);
+}
+
+.result {
+  width: 40%;
+  margin: auto;
+  height: 8em;
 
 }
 
+.currencyTitle {
+  margin: auto;
+}
+
 .chartContainer {
-  width: 50%;
+  /*margin: 20px auto 20px auto;*/
+  margin:auto;
+  width: 700px;
   height: 200px;
 }
 

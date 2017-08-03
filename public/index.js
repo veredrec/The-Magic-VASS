@@ -2,7 +2,7 @@ var form = document.querySelector('.form');
 var cryptoInput = document.querySelector('.crypto');
 var currencyInput = document.querySelector('.currency');
 var result = document.querySelector('.result');
-var resultContainer = document.querySelector('.resultContainer');
+var dataContainer = document.querySelector('.dataContainer');
 var chart = document.querySelector('#lineChart');
 var lineChart = new Chart(chart, {
   type: 'line',
@@ -77,6 +77,14 @@ form.addEventListener('submit', function(event) {
 
   if (timeVariable) {
     clearInterval(timeVariable);
+    lineChart.data.labels=[];
+    lineChart.data.datasets.forEach((dataset) => {
+      dataset.data = [];
+    });
+    lineChart.options.scales.yAxes.forEach((yAxe) => {
+      yAxe.ticks.max = '';
+      yAxe.ticks.min = '';
+    });
   }
 
   timeVariable = setInterval(priceTimer, 5000);
@@ -94,7 +102,7 @@ function showPrice(xhrObj) {
   var currencyTitle = document.createElement('h2');
   currencyTitle.setAttribute('class', 'currencyTitle');
   currencyTitle.innerText = xhrObj.title;
-  resultContainer.replaceChild(currencyTitle, resultContainer.firstChild);
+  dataContainer.replaceChild(currencyTitle, dataContainer.firstChild);
 
   Object.values(xhrObj).forEach(function(value, index) {
     if (index !== 0) {
@@ -110,7 +118,12 @@ function showPrice(xhrObj) {
 function makeChart(xhrObj) {
   var time = new Date();
   var currentTime = time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds();
-
+  if (lineChart.data.labels.length>=19) {
+    lineChart.data.labels.shift();
+    lineChart.data.datasets.forEach((dataset) => {
+      dataset.data.shift();
+    });
+  }
   lineChart.data.labels.push(currentTime);
   lineChart.data.datasets.forEach((dataset) => {
     dataset.data.push(xhrObj['Current Price']);
